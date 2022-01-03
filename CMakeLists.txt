@@ -17,9 +17,14 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
+find_package(rclcpp REQUIRED)
+find_package(dm_arm_interfaces REQUIRED)
 # uncomment the following section in order to fill in
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
+
+add_executable(action_executor src/action_executor.cpp)
+ament_target_dependencies(action_executor rclcpp dm_arm_interfaces)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
